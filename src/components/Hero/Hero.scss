@@ -19,7 +19,7 @@
     border-radius: 50%;
     filter: blur(90px);
     opacity: 0.35;
-    animation: float 9s ease-in-out infinite;
+    will-change: transform;
 
     &--one {
       width: 42rem;
@@ -35,7 +35,6 @@
       background: $color-accent;
       bottom: -6rem;
       left: -6rem;
-      animation-delay: 2s;
     }
   }
 

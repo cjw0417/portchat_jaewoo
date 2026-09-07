@@ -1,16 +1,51 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { FiArrowDown, FiGithub, FiMail } from "react-icons/fi";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useReveal from "../../hooks/useReveal";
+import Magnetic from "../common/Magnetic/Magnetic";
 import "./Hero.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const containerRef = useReveal();
+  const orbOneRef = useRef(null);
+  const orbTwoRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(orbOneRef.current, {
+        yPercent: 40,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      gsap.to(orbTwoRef.current, {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [containerRef]);
 
   return (
     <section id="home" className="hero" ref={containerRef}>
       <div className="hero__bg" aria-hidden="true">
-        <span className="hero__orb hero__orb--one" />
-        <span className="hero__orb hero__orb--two" />
+        <span className="hero__orb hero__orb--one" ref={orbOneRef} />
+        <span className="hero__orb hero__orb--two" ref={orbTwoRef} />
         <span className="hero__grid" />
       </div>
 
@@ -31,12 +66,16 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions reveal reveal-delay-3">
-          <Link to="projects" smooth duration={600} className="hero__btn hero__btn--primary">
-            프로젝트 보기
-          </Link>
-          <Link to="contact" smooth duration={600} className="hero__btn hero__btn--ghost">
-            연락하기
-          </Link>
+          <Magnetic>
+            <Link to="projects" smooth duration={600} className="hero__btn hero__btn--primary">
+              프로젝트 보기
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link to="contact" smooth duration={600} className="hero__btn hero__btn--ghost">
+              연락하기
+            </Link>
+          </Magnetic>
         </div>
 
         <div className="hero__socials reveal reveal-delay-4">

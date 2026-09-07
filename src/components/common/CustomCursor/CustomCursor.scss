@@ -1,0 +1,59 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.custom-cursor__dot,
+.custom-cursor__ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: $z-cursor;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.custom-cursor__dot {
+  width: 8px;
+  height: 8px;
+  background: $color-accent;
+}
+
+.custom-cursor__ring {
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: opacity 0.2s ease, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+
+  &.is-hovering {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-color: $color-accent;
+    background: rgba(0, 224, 198, 0.08);
+  }
+}
+
+body.has-custom-cursor {
+  cursor: none;
+
+  a,
+  button,
+  input,
+  textarea,
+  [data-cursor-hover] {
+    cursor: none;
+  }
+
+  .custom-cursor__dot,
+  .custom-cursor__ring {
+    opacity: 1;
+  }
+}
+
+// Never hijack the cursor on touch/coarse-pointer devices.
+@media (pointer: coarse) {
+  .custom-cursor__dot,
+  .custom-cursor__ring {
+    display: none;
+  }
+}

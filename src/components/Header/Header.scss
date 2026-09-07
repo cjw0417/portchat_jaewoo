@@ -135,11 +135,11 @@
       display: block;
       position: fixed;
       inset: 0;
-      top: 6.8rem;
+      z-index: $z-header - 1;
       background: $color-bg;
       transform: translateX(100%);
       transition: transform $transition-slow;
-      padding: 4rem 2.4rem;
+      padding: calc(#{$header-height} + 2.4rem) 2.4rem 4rem;
 
       &.is-open {
         transform: translateX(0);

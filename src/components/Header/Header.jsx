@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { NAV_LINKS } from "../../data/nav";
+import Magnetic from "../common/Magnetic/Magnetic";
 import "./Header.scss";
 
 export default function Header() {
@@ -28,82 +29,73 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
-      <div className="header__inner">
-        <Link
-          to="home"
-          smooth
-          duration={600}
-          className="header__logo"
-          onClick={closeMenu}
-        >
-          JAE<span>WOO</span>
-        </Link>
+    <>
+      <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
+        <div className="header__inner">
+          <Link
+            to="home"
+            spy
+            offset={-80}
+            className="header__logo"
+            onClick={closeMenu}
+          >
+            JAE<span>WOO</span>
+          </Link>
 
-        <nav className="header__nav header__nav--desktop">
-          <ul>
-            {NAV_LINKS.map((link) => (
-              <li key={link.id}>
-                <Link
-                  to={link.id}
-                  smooth
-                  duration={600}
-                  spy
-                  offset={-80}
-                  onSetActive={() => setActiveSection(link.id)}
-                  className={`header__nav-link ${
-                    activeSection === link.id ? "is-active" : ""
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav className="header__nav header__nav--desktop">
+            <ul>
+              {NAV_LINKS.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    to={link.id}
+                    spy
+                    offset={-80}
+                    onSetActive={() => setActiveSection(link.id)}
+                    className={`header__nav-link ${
+                      activeSection === link.id ? "is-active" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <Link
-          to="contact"
-          smooth
-          duration={600}
-          className="header__cta"
-        >
-          Let's Talk
-        </Link>
+          <Magnetic strength={0.4}>
+            <Link to="contact" offset={-80} className="header__cta">
+              Let's Talk
+            </Link>
+          </Magnetic>
 
-        <button
-          type="button"
-          className={`header__burger ${isMenuOpen ? "is-open" : ""}`}
-          aria-label="메뉴 토글"
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
+          <button
+            type="button"
+            className={`header__burger ${isMenuOpen ? "is-open" : ""}`}
+            aria-label="메뉴 토글"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
 
+      {/* Rendered as a header sibling (not a child) so the header's
+          backdrop-filter (when scrolled) can't turn this fixed-position
+          panel's containing block into the header's own short box. */}
       <nav className={`header__nav-mobile ${isMenuOpen ? "is-open" : ""}`}>
         <ul>
           {NAV_LINKS.map((link, index) => (
-            <li
-              key={link.id}
-              style={{ transitionDelay: `${index * 0.06}s` }}
-            >
-              <Link
-                to={link.id}
-                smooth
-                duration={600}
-                offset={-80}
-                onClick={closeMenu}
-              >
+            <li key={link.id} style={{ transitionDelay: `${index * 0.06}s` }}>
+              <Link to={link.id} offset={-80} onClick={closeMenu}>
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-    </header>
+    </>
   );
 }
