@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import useReveal from "../../hooks/useReveal";
 import { PROJECTS, PROJECT_FILTERS } from "../../data/projects";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -40,6 +41,14 @@ export default function Projects() {
               className={`projects__card reveal reveal-delay-${(index % 3) + 1}`}
               key={project.id}
             >
+              <Link
+                to={`/projects/${project.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="projects__card-link"
+                aria-label={`${project.title} 자세히 보기 (새 창)`}
+              />
+
               <div
                 className={`projects__thumb ${
                   project.image ? "has-image" : ""
@@ -55,14 +64,12 @@ export default function Projects() {
                 {!project.image && (
                   <span className="projects__thumb-mark">{project.order}</span>
                 )}
-                <a
-                  href="#"
-                  className="projects__thumb-link"
-                  aria-label={`${project.title} 자세히 보기`}
-                  onClick={(e) => e.preventDefault()}
-                >
+                <span className="projects__thumb-contribution">
+                  기여도 {project.contribution}%
+                </span>
+                <span className="projects__thumb-link" aria-hidden="true">
                   <FiArrowUpRight />
-                </a>
+                </span>
               </div>
 
               <div className="projects__card-body">

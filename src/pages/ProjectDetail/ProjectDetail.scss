@@ -1,0 +1,236 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.project-detail {
+  min-height: 100vh;
+  background: $color-bg;
+
+  &--empty {
+    @include flex(center, center, column, 1.6rem);
+    height: 100vh;
+
+    a {
+      color: $color-primary-light;
+      text-decoration: underline;
+    }
+  }
+
+  &__header {
+    @include container;
+    @include flex(space-between, center);
+    height: $header-height;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__logo {
+    font-size: $fs-md;
+    font-weight: $fw-black;
+
+    span {
+      color: $color-primary-light;
+    }
+  }
+
+  &__back {
+    @include flex(center, center, row, 0.8rem);
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  &__inner {
+    @include container;
+    max-width: 84rem;
+    padding-block: spacer(8);
+
+    @include mq(md) {
+      padding-block: spacer(6);
+    }
+  }
+
+  &__meta {
+    @include flex(flex-start, center, row, 1.6rem);
+    margin-bottom: 1.6rem;
+  }
+
+  &__category {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    color: $color-primary-light;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__period {
+    font-size: $fs-xs;
+    color: $color-text-faint;
+  }
+
+  &__title {
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+
+    @include mq(sm) {
+      font-size: $fs-lg;
+    }
+  }
+
+  &__desc {
+    font-size: $fs-md;
+    color: $color-text-muted;
+    line-height: 1.7;
+    max-width: 56rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &__site-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+    padding: 1.1rem 2rem;
+    border-radius: $radius-full;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    transition: background-color $transition-fast, transform $transition-fast;
+
+    &:hover {
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__tags {
+    @include flex(flex-start, center, row, 1rem);
+    flex-wrap: wrap;
+    margin-bottom: 3.2rem;
+
+    li {
+      padding: 0.7rem 1.6rem;
+      border-radius: $radius-full;
+      border: 1px solid $color-border;
+      font-size: $fs-xs;
+      font-weight: $fw-medium;
+      color: $color-text-muted;
+    }
+  }
+
+  &__contribution {
+    @include flex(flex-start, center, row, 1.6rem);
+    margin-bottom: 4.8rem;
+    padding: 2rem 2.4rem;
+    @include card-surface;
+  }
+
+  &__contribution-label {
+    position: relative;
+    z-index: 1;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-text-muted;
+    white-space: nowrap;
+  }
+
+  &__contribution-bar {
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    height: 8px;
+    border-radius: $radius-full;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: 100%;
+      border-radius: $radius-full;
+      background: var(--accent);
+    }
+  }
+
+  &__contribution-value {
+    position: relative;
+    z-index: 1;
+    font-size: $fs-md;
+    font-weight: $fw-bold;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  &__image {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    border: 1px solid $color-border;
+    margin-bottom: 4.8rem;
+    box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--accent) 40%, transparent);
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__demo {
+    @include flex(center, center, column, 2rem);
+  }
+
+  &__tasks {
+    margin-bottom: 4.8rem;
+
+    h2 {
+      font-size: $fs-md;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 2rem;
+      font-size: $fs-base;
+      line-height: 1.7;
+      color: $color-text;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 1.1rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $gradient-primary;
+      }
+    }
+  }
+
+  &__case {
+    padding-top: 4.8rem;
+    border-top: 1px solid $color-border;
+
+    h2 {
+      font-size: $fs-md;
+      margin-bottom: 1.2rem;
+    }
+
+    > p {
+      font-size: $fs-base;
+      color: $color-text-muted;
+      line-height: 1.7;
+      max-width: 56rem;
+      margin-bottom: 3.2rem;
+    }
+  }
+}

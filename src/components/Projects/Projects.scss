@@ -69,8 +69,22 @@
   &__card {
     @include card-surface;
     @include hover-lift;
+    position: relative;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+  }
+
+  &__card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: -2px;
+      border-radius: $radius-md;
+    }
   }
 
   &__thumb {
@@ -110,6 +124,19 @@
     border-radius: $radius-full;
   }
 
+  &__thumb-contribution {
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    color: #05060a;
+    background: var(--accent);
+    padding: 0.4rem 1.2rem;
+    border-radius: $radius-full;
+    white-space: nowrap;
+  }
+
   &__thumb-mark {
     position: absolute;
     right: -1rem;
@@ -135,15 +162,12 @@
     opacity: 0;
     transform: translateY(-6px);
     transition: opacity $transition-base, transform $transition-base, background-color $transition-fast;
-
-    &:hover {
-      background: var(--accent);
-    }
   }
 
   &__card:hover &__thumb-link {
     opacity: 1;
     transform: translateY(0);
+    background: var(--accent);
   }
 
   &__card-body {
