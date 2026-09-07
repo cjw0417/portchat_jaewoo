@@ -1,0 +1,185 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex(center, flex-start, column);
+  padding-top: $header-height;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    animation: float 9s ease-in-out infinite;
+
+    &--one {
+      width: 42rem;
+      height: 42rem;
+      background: $color-primary;
+      top: -10rem;
+      right: -8rem;
+    }
+
+    &--two {
+      width: 32rem;
+      height: 32rem;
+      background: $color-accent;
+      bottom: -6rem;
+      left: -6rem;
+      animation-delay: 2s;
+    }
+  }
+
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, black 40%, transparent 100%);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    @include container;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  &__eyebrow {
+    @include section-label;
+    margin-bottom: 2.4rem;
+  }
+
+  &__title {
+    font-size: $fs-3xl;
+    font-weight: $fw-black;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    max-width: 80rem;
+
+    @include mq(md) {
+      font-size: $fs-2xl;
+    }
+
+    @include mq(sm) {
+      font-size: $fs-xl;
+    }
+  }
+
+  &__title-highlight {
+    background: $gradient-primary;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite;
+  }
+
+  &__desc {
+    margin-top: 2.8rem;
+    font-size: $fs-md;
+    color: $color-text-muted;
+    max-width: 56rem;
+    line-height: 1.7;
+
+    @include mq(sm) {
+      font-size: $fs-base;
+    }
+  }
+
+  &__actions {
+    margin-top: 4rem;
+    @include flex(flex-start, center, row, 1.6rem);
+
+    @include mq(xs) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3.2rem;
+    border-radius: $radius-full;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    transition: transform $transition-fast, box-shadow $transition-fast, background-color $transition-fast, border-color $transition-fast;
+
+    &--primary {
+      background: $gradient-primary;
+      color: #05060a;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 32px -12px rgba(108, 92, 231, 0.6);
+      }
+    }
+
+    &--ghost {
+      border: 1px solid $color-border;
+      color: $color-text;
+
+      &:hover {
+        border-color: $color-primary;
+        background: rgba(108, 92, 231, 0.08);
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__socials {
+    margin-top: 5.6rem;
+    @include flex(flex-start, center, row, 2rem);
+
+    a {
+      @include flex(center, center);
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      border: 1px solid $color-border;
+      font-size: 1.8rem;
+      color: $color-text-muted;
+      transition: color $transition-fast, border-color $transition-fast, transform $transition-fast;
+
+      &:hover {
+        color: $color-accent;
+        border-color: $color-accent;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 4rem;
+    transform: translateX(-50%);
+    @include flex(center, center, column, 0.8rem);
+    font-size: $fs-xs;
+    color: $color-text-faint;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+
+    svg {
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @include mq(sm) {
+      display: none;
+    }
+  }
+}

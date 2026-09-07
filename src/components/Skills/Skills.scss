@@ -1,0 +1,84 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.skills {
+  padding-block: spacer(9);
+  background: $color-bg-alt;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+
+  @include mq(md) {
+    padding-block: spacer(7);
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 1.6rem;
+  }
+
+  &__title {
+    @include section-title;
+    margin-bottom: 1.6rem;
+  }
+
+  &__desc {
+    font-size: $fs-base;
+    max-width: 60rem;
+    line-height: 1.7;
+    margin-bottom: 5.6rem;
+  }
+
+  &__groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+
+    @include mq(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__group {
+    @include card-surface;
+    padding: 2.8rem;
+  }
+
+  &__group-title {
+    font-size: $fs-md;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__tags {
+    position: relative;
+    z-index: 1;
+    @include flex(flex-start, center, row, 1rem);
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    padding: 0.9rem 1.8rem;
+    border-radius: $radius-full;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $color-border;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text;
+    transition: color $transition-fast, border-color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      color: $color-accent;
+      border-color: $color-accent;
+      background: rgba(0, 224, 198, 0.08);
+    }
+  }
+}

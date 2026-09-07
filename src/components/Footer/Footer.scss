@@ -1,0 +1,78 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.footer {
+  padding-block: spacer(6) spacer(4);
+
+  &__inner {
+    @include container;
+  }
+
+  &__top {
+    @include flex(space-between, center);
+    padding-bottom: 3.2rem;
+    border-bottom: 1px solid $color-border;
+
+    @include mq(md) {
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+  }
+
+  &__logo {
+    font-size: $fs-md;
+    font-weight: $fw-black;
+
+    span {
+      color: $color-primary-light;
+    }
+  }
+
+  &__nav ul {
+    @include flex(center, center, row, 2.8rem);
+    flex-wrap: wrap;
+
+    @include mq(sm) {
+      justify-content: center;
+    }
+
+    a {
+      font-size: $fs-sm;
+      color: $color-text-muted;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-text;
+      }
+    }
+  }
+
+  &__top-btn {
+    @include flex(center, center);
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    font-size: 1.8rem;
+    transition: border-color $transition-fast, transform $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      border-color: $color-primary;
+      background: rgba(108, 92, 231, 0.1);
+      transform: translateY(-3px);
+    }
+  }
+
+  &__bottom {
+    padding-top: 3.2rem;
+    @include flex(space-between, center);
+    font-size: $fs-xs;
+    color: $color-text-faint;
+
+    @include mq(sm) {
+      flex-direction: column;
+      gap: 0.8rem;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+@use "sass:map";
+@use "variables" as *;
+
+// ==========================================================================
+// Responsive breakpoints (mobile-first "down" queries, publisher convention)
+// ==========================================================================
+@mixin mq($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// ==========================================================================
+// Flex helpers
+// ==========================================================================
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// ==========================================================================
+// Container
+// ==========================================================================
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+
+  @include mq(sm) {
+    padding-inline: 1.6rem;
+  }
+}
+
+// ==========================================================================
+// Typography helpers
+// ==========================================================================
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-primary-light;
+
+  &::before {
+    content: "";
+    width: 2.4rem;
+    height: 2px;
+    background: $gradient-primary;
+  }
+}
+
+@mixin section-title {
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  letter-spacing: -0.02em;
+  color: $color-text;
+
+  @include mq(md) {
+    font-size: $fs-lg;
+  }
+}
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+@mixin reset-button {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+// ==========================================================================
+// Effects
+// ==========================================================================
+@mixin card-surface {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $gradient-surface;
+    pointer-events: none;
+  }
+}
+
+@mixin hover-lift {
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -20px rgba(108, 92, 231, 0.45);
+    border-color: rgba(108, 92, 231, 0.5);
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}

@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as *;
+
+body {
+  font-family: $font-primary;
+  font-size: $fs-base;
+  background-color: $color-bg;
+  color: $color-text;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $fw-bold;
+  line-height: 1.2;
+}
+
+p {
+  color: $color-text-muted;
+}
+
+::selection {
+  background: $color-primary;
+  color: #fff;
+}
+
+// Scrollbar (webkit)
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-surface-alt;
+  border-radius: $radius-full;
+  border: 2px solid $color-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $color-primary;
+}

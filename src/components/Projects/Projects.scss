@@ -1,0 +1,202 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.projects {
+  padding-block: spacer(9);
+
+  @include mq(md) {
+    padding-block: spacer(7);
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 1.6rem;
+  }
+
+  &__title {
+    @include section-title;
+    margin-bottom: 4rem;
+  }
+
+  &__filters {
+    @include flex(flex-start, center, row, 1.2rem);
+    margin-bottom: 4.8rem;
+    flex-wrap: wrap;
+  }
+
+  &__filter {
+    @include reset-button;
+    @include focus-ring;
+    padding: 1rem 2.2rem;
+    border-radius: $radius-full;
+    border: 1px solid $color-border;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text-muted;
+    transition: color $transition-fast, border-color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      color: $color-text;
+      border-color: $color-primary-light;
+    }
+
+    &.is-active {
+      background: $gradient-primary;
+      border-color: transparent;
+      color: #05060a;
+      font-weight: $fw-semibold;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+
+    @include mq(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    @include card-surface;
+    @include hover-lift;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__thumb {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 35%, $color-surface) 0%, $color-surface 75%);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid $color-border;
+    overflow: hidden;
+
+    &.has-image {
+      background-blend-mode: normal;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(5, 6, 10, 0.75) 0%, rgba(5, 6, 10, 0) 55%);
+      }
+    }
+  }
+
+  &__thumb-order {
+    position: relative;
+    z-index: 1;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.05em;
+    background: rgba(5, 6, 10, 0.4);
+    padding: 0.4rem 1rem;
+    border-radius: $radius-full;
+  }
+
+  &__thumb-mark {
+    position: absolute;
+    right: -1rem;
+    bottom: -3rem;
+    font-size: 12rem;
+    font-weight: $fw-black;
+    color: rgba(255, 255, 255, 0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  &__thumb-link {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: rgba(5, 6, 10, 0.5);
+    color: #fff;
+    @include flex(center, center);
+    font-size: 1.8rem;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity $transition-base, transform $transition-base, background-color $transition-fast;
+
+    &:hover {
+      background: var(--accent);
+    }
+  }
+
+  &__card:hover &__thumb-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__card-body {
+    position: relative;
+    z-index: 1;
+    padding: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+  }
+
+  &__card-meta {
+    @include flex(space-between, center);
+    gap: 1rem;
+  }
+
+  &__card-category {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    color: $color-primary-light;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__card-period {
+    font-size: $fs-xs;
+    color: $color-text-faint;
+    white-space: nowrap;
+  }
+
+  &__card-title {
+    font-size: $fs-md;
+    line-height: 1.35;
+  }
+
+  &__card-desc {
+    font-size: $fs-sm;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  &__card-tags {
+    @include flex(flex-start, center, row, 0.8rem);
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+
+    li {
+      font-size: $fs-xs;
+      padding: 0.5rem 1.2rem;
+      border-radius: $radius-full;
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-text-muted;
+    }
+  }
+}

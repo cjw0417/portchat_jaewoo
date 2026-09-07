@@ -1,0 +1,91 @@
+@use "sass:map";
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+$color-bg: #0b0c10;
+$color-bg-alt: #121319;
+$color-surface: #16181f;
+$color-surface-alt: #1c1f28;
+$color-border: #262a35;
+
+$color-text: #eef0f5;
+$color-text-muted: #9aa0ae;
+$color-text-faint: #666c7a;
+
+$color-primary: #6c5ce7;
+$color-primary-light: #a29bfe;
+$color-accent: #00e0c6;
+$color-danger: #ff6b6b;
+
+$gradient-primary: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+$gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+$font-primary: "Pretendard", "Poppins", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+$fs-xs: 1.2rem;
+$fs-sm: 1.4rem;
+$fs-base: 1.6rem;
+$fs-md: 1.8rem;
+$fs-lg: 2.2rem;
+$fs-xl: 3.2rem;
+$fs-2xl: 4.8rem;
+$fs-3xl: 6.4rem;
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-black: 800;
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+$container-max: 1200px;
+$header-height: 8rem;
+
+$breakpoint-xs: 375px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// ==========================================================================
+// Motion
+// ==========================================================================
+$transition-fast: 0.2s ease;
+$transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+$radius-sm: 0.6rem;
+$radius-md: 1.2rem;
+$radius-lg: 2rem;
+$radius-full: 999px;
+
+$z-header: 100;
+$z-modal: 200;
+$z-cursor: 999;
+
+// ==========================================================================
+// Spacing scale (used ad-hoc via functions below)
+// ==========================================================================
+$spacers: (
+  0: 0,
+  1: 0.4rem,
+  2: 0.8rem,
+  3: 1.2rem,
+  4: 1.6rem,
+  5: 2.4rem,
+  6: 3.2rem,
+  7: 4.8rem,
+  8: 6.4rem,
+  9: 9.6rem,
+  10: 12.8rem,
+);
+
+@function spacer($key) {
+  @return map.get($spacers, $key);
+}

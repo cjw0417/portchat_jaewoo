@@ -1,0 +1,172 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.about {
+  padding-block: spacer(9);
+  border-top: 1px solid $color-border;
+
+  @include mq(md) {
+    padding-block: spacer(7);
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 1.6rem;
+  }
+
+  &__title {
+    @include section-title;
+    max-width: 44rem;
+    margin-bottom: 6rem;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 32rem 1fr;
+    gap: 6.4rem;
+    align-items: start;
+
+    @include mq(lg) {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+  }
+
+  &__portrait {
+    position: relative;
+  }
+
+  &__portrait-frame {
+    aspect-ratio: 4 / 5;
+    border-radius: $radius-lg;
+    background: linear-gradient(160deg, $color-surface-alt 0%, $color-surface 100%);
+    border: 1px solid $color-border;
+    @include flex(center, center);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(108, 92, 231, 0.35), transparent 55%);
+    }
+  }
+
+  &__portrait-initials {
+    font-size: 8rem;
+    font-weight: $fw-black;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__portrait-badge {
+    position: absolute;
+    bottom: -2rem;
+    right: -1.6rem;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: 1.6rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+
+    strong {
+      display: block;
+      font-size: $fs-lg;
+      color: $color-accent;
+    }
+
+    span {
+      font-size: $fs-xs;
+      color: $color-text-faint;
+      white-space: nowrap;
+    }
+
+    @include mq(lg) {
+      right: 1.6rem;
+    }
+  }
+
+  &__text {
+    p {
+      font-size: $fs-base;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__quote {
+    position: relative;
+    margin: 3.2rem 0;
+    padding: 2.4rem 2.8rem;
+    border-left: 3px solid $color-primary;
+    background: rgba(108, 92, 231, 0.06);
+    border-radius: 0 $radius-md $radius-md 0;
+    font-size: $fs-base;
+    font-style: normal;
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  &__career {
+    margin-top: 4rem;
+  }
+
+  &__career-title {
+    font-size: $fs-md;
+    margin-bottom: 2rem;
+  }
+
+  &__career-list {
+    display: grid;
+    gap: 1.6rem;
+
+    li {
+      @include flex(flex-start, baseline, row, 1.6rem);
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid $color-border;
+
+      @include mq(xs) {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+    }
+  }
+
+  &__career-period {
+    flex-shrink: 0;
+    width: 15rem;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-primary-light;
+  }
+
+  &__career-role {
+    font-size: $fs-sm;
+    color: $color-text;
+  }
+
+  &__keywords {
+    margin-top: 3.2rem;
+    @include flex(flex-start, center, row, 1.2rem);
+    flex-wrap: wrap;
+
+    li {
+      padding: 0.8rem 1.8rem;
+      border-radius: $radius-full;
+      border: 1px solid $color-border;
+      font-size: $fs-xs;
+      font-weight: $fw-medium;
+      color: $color-text-muted;
+    }
+  }
+}
