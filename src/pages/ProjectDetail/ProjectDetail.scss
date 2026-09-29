@@ -216,6 +216,93 @@
     }
   }
 
+  &__showcase {
+    padding-top: 4.8rem;
+    margin-bottom: 4.8rem;
+    border-top: 1px solid $color-border;
+
+    > h2 {
+      font-size: $fs-md;
+      margin-bottom: 3.2rem;
+    }
+
+    > ol {
+      display: grid;
+      gap: 6.4rem;
+    }
+  }
+
+  &__showcase-item {
+    display: grid;
+    gap: 2.4rem;
+
+    &.is-side {
+      grid-template-columns: 1fr 32rem;
+      align-items: start;
+
+      @include mq(md) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+    }
+  }
+
+  &__showcase-num {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: $fs-xs;
+    font-weight: $fw-bold;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  &__showcase-text {
+    h3 {
+      font-size: $fs-md;
+      font-weight: $fw-bold;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-size: $fs-base;
+      color: $color-text-muted;
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+    }
+
+    ul {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: $fs-sm;
+      line-height: 1.6;
+      color: $color-text;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.9rem;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+    }
+  }
+
+  &__showcase-image {
+    margin-bottom: 0;
+
+    .is-side & {
+      max-width: 32rem;
+    }
+  }
+
   &__case {
     padding-top: 4.8rem;
     border-top: 1px solid $color-border;

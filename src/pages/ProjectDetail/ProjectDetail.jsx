@@ -88,6 +88,43 @@ export default function ProjectDetail() {
           </ul>
         </div>
 
+        {project.showcase && (
+          <div
+            className="project-detail__showcase"
+            style={{ "--accent": project.color }}
+          >
+            <h2>화면 구성</h2>
+            <ol>
+              {project.showcase.map((item, index) => (
+                <li
+                  key={item.title}
+                  className={`project-detail__showcase-item ${
+                    item.layout === "side" ? "is-side" : ""
+                  }`}
+                >
+                  <div className="project-detail__showcase-text">
+                    <span className="project-detail__showcase-num">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    {item.points && (
+                      <ul>
+                        {item.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <div className="project-detail__image project-detail__showcase-image">
+                    <img src={item.image} alt={`${item.title} 화면`} loading="lazy" />
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         {project.caseStudy && (
           <div className="project-detail__case">
             <h2>케이스 스터디 · {project.caseStudy.title}</h2>

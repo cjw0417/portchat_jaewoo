@@ -31,7 +31,7 @@ export default function Contact() {
         <div className="contact__info">
           <p className="contact__label reveal">Contact</p>
           <h2 className="contact__title reveal reveal-delay-1">
-            함께 만들고 싶은
+            함께 진행하고 싶으신
             <br />
             프로젝트가 있다면
           </h2>

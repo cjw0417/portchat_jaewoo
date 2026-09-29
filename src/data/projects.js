@@ -2,6 +2,13 @@ import shinhancardImg from "../assets/projects/shinhancard.png";
 import ocrImg from "../assets/projects/OCR.png";
 import m4aImg from "../assets/projects/m4a.png";
 import nhcardImg from "../assets/projects/nhcard.png";
+import aionOverviewImg from "../assets/projects/aion2/overview.jpg";
+import aionLoginImg from "../assets/projects/aion2/login.png";
+import aionHeaderImg from "../assets/projects/aion2/header.jpg";
+import aionFormImg from "../assets/projects/aion2/form.jpg";
+import aionDaySummaryImg from "../assets/projects/aion2/day-summary.jpg";
+import aionCalendarImg from "../assets/projects/aion2/calendar.jpg";
+import aionMemberImg from "../assets/projects/aion2/member.jpg";
 
 export const PROJECTS = [
   {
@@ -81,6 +88,96 @@ export const PROJECTS = [
       "React.js 퍼블리싱",
       '뉴 원큐 "하나기부 서비스" 신규 제작',
       '뉴 원큐 "모임통장 서비스" 개선',
+    ],
+  },
+  {
+    id: "aion2-raid",
+    order: "05",
+    title: "아이온2 길드 레이드 스케줄",
+    category: "SIDE PROJECT",
+    period: "2026.09 ~ 현재 진행중",
+    contribution: 100,
+    siteUrl: "https://raid-calendar-deng-aion-grew-region.vercel.app/",
+    description:
+      "취미로 즐기는 아이온2 길드원들의 레이드 공략 가능 시간을 모아 파티를 구성하는 공유 스케줄표",
+    tags: ["React", "Vite", "Supabase", "Vercel", "SCSS"],
+    image: aionOverviewImg,
+    color: "#7c9cff",
+    tasks: [
+      "기획·디자인·퍼블리싱·개발·배포까지 1인 전담",
+      "Supabase 기반 닉네임 로그인 및 공유 스케줄 데이터 저장",
+      "레이드·난이도·공략 방식별 주간 캘린더 자동 집계 및 A/B 파티 편성",
+      "매주 수요일 리셋 카운트다운, 출발·클리어 표시 기능",
+      "Vercel 배포로 길드원 누구나 접속 가능한 실서비스 운영",
+    ],
+    showcase: [
+      {
+        title: "닉네임 로그인",
+        image: aionLoginImg,
+        description:
+          "길드원별 닉네임으로 로그인합니다. 최초 로그인 시 안내받은 초기 비밀번호로 들어와 본인 비밀번호와 찾기 질문을 설정합니다.",
+        points: [
+          "Supabase에 계정·비밀번호 정보 저장",
+          "여러 번 틀리면 5분간 잠금 처리",
+          "비밀번호 찾기 질문으로 스스로 재설정",
+        ],
+      },
+      {
+        title: "헤더 · 요약 카드",
+        image: aionHeaderImg,
+        description:
+          "실시간 시계와 로그인 사용자 정보, 그리고 한눈에 보는 요약 카드 3종을 상단에 배치했습니다.",
+        points: [
+          "다음 주간 리셋(수요일 00:00)까지 남은 시간 카운트다운",
+          "현재 스케줄에 참여한 전체 인원 집계",
+          "파티 조건(2파티 / 10명, 파티당 5명) 안내",
+        ],
+      },
+      {
+        title: "나의 레이드 가능 시간",
+        image: aionFormImg,
+        layout: "side",
+        description:
+          "레이드·난이도·공략 방식을 먼저 고른 뒤 가능한 요일과 시간대를 선택해 저장하는 입력 패널입니다.",
+        points: [
+          "레이드 조건마다 요일·시간을 따로 저장",
+          "리딩 가능 여부(O/X), 직업, 전투력 선택",
+          "선택 내용을 '내 선택 요약'으로 미리 확인 후 캘린더에 저장",
+          "저장된 스케줄 개별/전체 삭제",
+        ],
+      },
+      {
+        title: "요일별 레이드 신청 현황",
+        image: aionDaySummaryImg,
+        description:
+          "요일마다 어떤 레이드가 몇 시에 몇 명 신청됐는지 인원이 많은 순으로 보여줍니다.",
+        points: [
+          "레이드 / 난이도 / 공략 방식 단위로 그룹핑",
+          "참여자 직업 아이콘 표시, 펼쳐서 인원 확인",
+          "출발·클리어 O/X 표시 및 디스코드 알림 연동",
+        ],
+      },
+      {
+        title: "주간 레이드 슬롯",
+        image: aionCalendarImg,
+        description:
+          "탭으로 레이드·난이도·공략 방식을 바꾸며, 요일 × 시간대 캘린더에서 파티 구성을 확인합니다.",
+        points: [
+          "시간칸마다 A/B 파티로 자동 분배 (파티당 5명)",
+          "리딩 가능 인원은 별도 표시",
+          "주말/공휴일 낮시간 표시 여부 설정",
+        ],
+      },
+      {
+        title: "보스 난이도별 선택인원",
+        image: aionMemberImg,
+        description:
+          "보스·난이도·공략 방식 조합별로 어떤 길드원이 신청했는지 직업·전투력과 함께 모아 보여줍니다.",
+        points: [
+          "직업 아이콘 + 닉네임 + 전투력 구간 칩",
+          "리딩 가능 인원 뱃지로 구분",
+        ],
+      },
     ],
   },
 ];
