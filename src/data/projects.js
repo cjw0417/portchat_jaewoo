@@ -9,6 +9,7 @@ import aionFormImg from "../assets/projects/aion2/form.jpg";
 import aionDaySummaryImg from "../assets/projects/aion2/day-summary.jpg";
 import aionCalendarImg from "../assets/projects/aion2/calendar.jpg";
 import aionMemberImg from "../assets/projects/aion2/member.jpg";
+import aionUpdateNotesImg from "../assets/projects/aion2/update-notes.png";
 
 export const PROJECTS = [
   {
@@ -109,6 +110,7 @@ export const PROJECTS = [
       "레이드·난이도·공략 방식별 주간 캘린더 자동 집계 및 A/B 파티 편성",
       "매주 수요일 리셋 카운트다운, 출발·클리어 표시 기능",
       "Vercel 배포로 길드원 누구나 접속 가능한 실서비스 운영",
+      "길드원 피드백을 받아 개선하고, 디스코드로 업데이트 안내 공유",
     ],
     showcase: [
       {
@@ -176,6 +178,17 @@ export const PROJECTS = [
         points: [
           "직업 아이콘 + 닉네임 + 전투력 구간 칩",
           "리딩 가능 인원 뱃지로 구분",
+        ],
+      },
+      {
+        title: "업데이트 안내 공유",
+        image: aionUpdateNotesImg,
+        description:
+          "길드원 피드백을 받아 바로 반영하고, 변경 사항은 디스코드에 업데이트 안내로 정리해 공유합니다.",
+        points: [
+          "수정 시각과 변경 내용을 항목별로 기록",
+          "네이밍 수정, 팝업 추가, 비밀번호 기능 등 피드백 즉시 반영",
+          "모바일 UI 대응 등 사용 환경에 맞춘 지속 개선",
         ],
       },
     ],
