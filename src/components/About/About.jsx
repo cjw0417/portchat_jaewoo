@@ -47,19 +47,19 @@ export default function About() {
           <div className="about__text">
             <p className="reveal reveal-delay-2">
               안녕하세요. (주)미디어포스 얼라이언스에서 퍼블리셔로 일해온
-              조재우입니다. 신한카드 운영으로 시작했는데 어쩌다 보니
+              조재우입니다. 첫 프로젝트를 신한카드 운영으로 시작했는데 어쩌다 보니
               금융권 프로젝트가 계속 이어지는 덕분에 복잡한 UI 구조 다루는
-              건 꽤 익숙해졌어요.
+              건 꽤 익숙합니다.
             </p>
             <p className="reveal reveal-delay-3">
-              마크업이 그냥 껍데기라는 생각은 없어요. 결국 사용자가 직접
-              보고 만지는 부분이라서, 꼼꼼하게 짚고 넘어가는 편이에요.
+              마크업이 그냥 껍데기라는 생각은 안합니다. 결국 사용자가 직접
+              보고 만지는 부분이라서, 최대한 꼼꼼하게 짚어 업무를 진행합니다.
             </p>
 
             <blockquote className="about__quote reveal reveal-delay-3">
               “디자인 시안이 들어오면 ‘어떻게 구현하지’보다 ‘어떻게 하면 더
               꼼꼼하게 사용자의 편의성을 위해 잘 만들 수 있을까’를 먼저
-              생각해요.”
+              생각합니다.”
             </blockquote>
 
             <div className="about__career">

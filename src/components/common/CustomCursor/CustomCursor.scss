@@ -48,6 +48,19 @@ body.has-custom-cursor {
   .custom-cursor__ring {
     opacity: 1;
   }
+
+  // iframe(모바일 목업) 안에서는 마우스 좌표를 받을 수 없으므로
+  // 커스텀 커서를 숨기고 iframe 안의 기본 커서를 쓴다.
+  &.is-cursor-in-iframe {
+    .custom-cursor__dot,
+    .custom-cursor__ring {
+      opacity: 0;
+    }
+  }
+
+  [data-cursor-native] {
+    cursor: auto;
+  }
 }
 
 // Never hijack the cursor on touch/coarse-pointer devices.

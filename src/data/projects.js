@@ -53,7 +53,7 @@ const PROJECT_LIST = [
     category: "WEB PUBLISHING",
     period: "2025.01 ~ 2025.03",
     contribution: 90,
-    siteUrl: null,
+    siteUrl: "https://www.m4a.co.kr/html/Works.html",
     description: "기존 HTML 사내 홈페이지를 CSS Grid 기반 반응형 페이지로 리뉴얼",
     tags: ["HTML", "CSS", "CSS Grid", "JavaScript", "Figma"],
     image: m4aImg,

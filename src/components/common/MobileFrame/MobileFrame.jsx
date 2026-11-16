@@ -3,7 +3,7 @@ import "./MobileFrame.scss";
 export default function MobileFrame({ src, title, emptyMessage }) {
   return (
     <div className="mobile-frame">
-      <div className="mobile-frame__device">
+      <div className="mobile-frame__device" data-cursor-native>
         <span className="mobile-frame__notch" />
         <div className="mobile-frame__screen">
           {src ? (

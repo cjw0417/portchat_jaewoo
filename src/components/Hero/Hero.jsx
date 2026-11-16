@@ -53,14 +53,13 @@ export default function Hero() {
         <p className="hero__eyebrow reveal">Frontend Publisher / Developer</p>
 
         <h1 className="hero__title reveal reveal-delay-1">
-          픽셀 하나까지 <br />
-          <span className="hero__title-highlight">완벽을 조각하는</span>
+          <span className="hero__title-highlight">편의를 완성하는</span>
           <br />
           퍼블리셔, 조재우입니다.
         </h1>
 
         <p className="hero__desc reveal reveal-delay-2">
-          시맨틱 마크업과 정교한 인터랙션으로 브랜드 경험을 완성합니다.
+          시맨틱 마크업과 고객의 요구를 최우선으로 사용자 중심의 UI를 완성합니다.
           <br />
           HTML · CSS(Scss) · JavaScript · React · Vue 기반으로 작업합니다.
         </p>

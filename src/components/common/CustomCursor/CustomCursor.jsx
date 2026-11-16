@@ -33,6 +33,12 @@ export default function CustomCursor() {
     // Delegated hover detection so dynamically rendered elements
     // (e.g. filtered project cards) are picked up without re-binding.
     const handleOver = (e) => {
+      // iframe 안으로 들어가면 이 문서로 mousemove가 오지 않아 커서가 멈춘다.
+      // iframe을 감싼 [data-cursor-native] 영역에 들어오면 커스텀 커서를 숨기고 기본 커서를 쓴다.
+      document.body.classList.toggle(
+        "is-cursor-in-iframe",
+        Boolean(e.target.closest("[data-cursor-native]"))
+      );
       if (e.target.closest(HOVER_TARGETS)) ring.classList.add("is-hovering");
     };
     const handleOut = (e) => {
@@ -52,7 +58,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", handleLeaveWindow);
       document.removeEventListener("mouseover", handleOver);
       document.removeEventListener("mouseout", handleOut);
-      document.body.classList.remove("has-custom-cursor");
+      document.body.classList.remove("has-custom-cursor", "is-cursor-in-iframe");
     };
   }, []);
 
