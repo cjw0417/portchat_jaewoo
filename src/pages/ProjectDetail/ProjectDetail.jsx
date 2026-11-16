@@ -79,6 +79,15 @@ export default function ProjectDetail() {
           </div>
         )}
 
+        {!project.image && project.imageNote && (
+          <p
+            className="project-detail__image-note"
+            style={{ "--accent": project.color }}
+          >
+            {project.imageNote}
+          </p>
+        )}
+
         <div className="project-detail__tasks">
           <h2>담당 업무</h2>
           <ul>

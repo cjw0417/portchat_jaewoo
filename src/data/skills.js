@@ -7,7 +7,7 @@ export const SKILL_GROUPS = [
   {
     id: "script",
     title: "Script",
-    items: ["JavaScript", "TypeScript", "React"],
+    items: ["JavaScript", "TypeScript", "React", "Vue.js"],
   },
   {
     id: "animation",
@@ -17,7 +17,7 @@ export const SKILL_GROUPS = [
   {
     id: "tools",
     title: "Tools / Design",
-    items: ["Figma", "Git", "Vite", "Responsive"],
+    items: ["Figma", "Git", "Vite", "Storybook", "Supabase", "Vercel", "Responsive"],
   },
   {
     id: "ai",

@@ -179,6 +179,16 @@
     }
   }
 
+  &__image-note {
+    padding: 2.4rem;
+    margin-bottom: 4.8rem;
+    border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: $radius-lg;
+    color: $color-text-muted;
+    font-size: $fs-sm;
+    text-align: center;
+  }
+
   &__demo {
     @include flex(center, center, column, 2rem);
   }
