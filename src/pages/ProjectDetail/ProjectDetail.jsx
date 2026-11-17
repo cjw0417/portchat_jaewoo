@@ -103,6 +103,11 @@ export default function ProjectDetail() {
             style={{ "--accent": project.color }}
           >
             <h2>화면 구성</h2>
+            {project.showcaseNote && (
+              <p className="project-detail__showcase-note">
+                {project.showcaseNote}
+              </p>
+            )}
             <ol>
               {project.showcase.map((item, index) => (
                 <li
@@ -125,9 +130,26 @@ export default function ProjectDetail() {
                       </ul>
                     )}
                   </div>
-                  <div className="project-detail__image project-detail__showcase-image">
-                    <img src={item.image} alt={`${item.title} 화면`} loading="lazy" />
-                  </div>
+                  {item.screens ? (
+                    <ul className="project-detail__screens">
+                      {item.screens.map((screen) => (
+                        <li key={screen.caption}>
+                          <div className="project-detail__screen" data-cursor-native>
+                            <img
+                              src={screen.image}
+                              alt={`${item.title} - ${screen.caption} 화면`}
+                              loading="lazy"
+                            />
+                          </div>
+                          <span>{screen.caption}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="project-detail__image project-detail__showcase-image">
+                      <img src={item.image} alt={`${item.title} 화면`} loading="lazy" />
+                    </div>
+                  )}
                 </li>
               ))}
             </ol>

@@ -305,6 +305,61 @@
     }
   }
 
+  &__showcase-note {
+    margin: -2rem 0 3.2rem;
+    font-size: $fs-sm;
+    color: $color-text-faint;
+  }
+
+  // 모바일 시안 여러 장을 폰 비율 프레임으로 나란히 보여준다.
+  // 세로로 긴 화면은 프레임 안에서 스크롤된다.
+  &__screens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.6rem;
+
+    > li {
+      @include flex(flex-start, center, column, 1rem);
+      min-width: 0;
+
+      > span {
+        font-size: $fs-xs;
+        font-weight: $fw-medium;
+        color: $color-text-muted;
+      }
+    }
+
+    @include mq(sm) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.8rem;
+
+      > li {
+        flex: 0 0 70%;
+        scroll-snap-align: center;
+      }
+    }
+  }
+
+  &__screen {
+    width: 100%;
+    max-width: 28rem;
+    aspect-ratio: 1179 / 2556;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border;
+    background: #fff;
+    box-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent) 45%, transparent);
+    scrollbar-width: thin;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
   &__showcase-image {
     margin-bottom: 0;
 

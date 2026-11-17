@@ -17,6 +17,20 @@ import ncAttendanceImg from "../assets/projects/nc/nc-3.png";
 import ncHospitalImg from "../assets/projects/nc/nc-4.png";
 import ncResidentImg from "../assets/projects/nc/nc-5.png";
 import ncWeightImg from "../assets/projects/nc/nc-6.png";
+import hanaMainLeaderImg from "../assets/projects/hana/main-leader.png";
+import hanaMainMemberImg from "../assets/projects/hana/main-member.png";
+import hanaHistoryListImg from "../assets/projects/hana/history-list.png";
+import hanaHistoryCalendarImg from "../assets/projects/hana/history-calendar.png";
+import hanaReportImg from "../assets/projects/hana/report.png";
+import hanaSplitMembersImg from "../assets/projects/hana/split-members.png";
+import hanaSplitAmountImg from "../assets/projects/hana/split-amount.png";
+import hanaSplitConfirmImg from "../assets/projects/hana/split-confirm.png";
+import hanaSplitCompleteImg from "../assets/projects/hana/split-complete.png";
+import hanaBoardListImg from "../assets/projects/hana/board-list.png";
+import hanaBoardDetailImg from "../assets/projects/hana/board-detail.png";
+import hanaCommentInputImg from "../assets/projects/hana/comment-input.png";
+import hanaCommentExpandImg from "../assets/projects/hana/comment-input-expand.png";
+import hanaCommentScrollImg from "../assets/projects/hana/comment-input-scroll.png";
 
 // 작성 순서(오래된 순). 화면에는 최신순으로 보여주고, 번호는 보이는 순서대로 매긴다.
 const PROJECT_LIST = [
@@ -94,14 +108,90 @@ const PROJECT_LIST = [
       "React.js 기반 하나은행 뉴 원큐 앱의 '하나기부' 신규 서비스 제작과 '모임통장' 서비스 개선 퍼블리싱",
     tags: ["React", "SCSS", "Figma"],
     image: null,
-    imageNote: "보안 정책에 따라 화면 이미지는 공개하지 않습니다.",
     color: "#00e0c6",
     tasks: [
       "React.js 기반 기존 컴포넌트를 활용한 웹 화면 퍼블리싱",
       "React 컴포넌트 구조를 활용한 UI 구현 및 스타일 적용",
-      "신규 UI 컴포넌트 1종 직접 제작 및 구현",
+      "모임 게시판 댓글 입력 컴포넌트(최대 5줄 자동 확장 · 초과 시 내부 스크롤) 신규 제작",
       "원큐 서비스 내 '하나기부 서비스' 화면 신규 제작",
       "기존 원큐 서비스 내 '모임통장 서비스' UI 개선 및 고도화",
+    ],
+    showcaseNote: "아래 화면은 모임통장 서비스의 피그마 시안이며, 이름 · 금액 등은 모두 예시 데이터입니다.",
+    showcase: [
+      {
+        title: "모임통장 메인 · 총무 / 모임원",
+        screens: [
+          { image: hanaMainLeaderImg, caption: "총무" },
+          { image: hanaMainMemberImg, caption: "모임원" },
+        ],
+        description:
+          "같은 모임통장이라도 총무와 모임원에게 보이는 공지 영역과 하단 버튼이 달라, 권한별 화면을 나눠 구성했습니다.",
+        points: [
+          "잔액 · 출금가능금액 · 금고 이자혜택을 담은 계좌 카드",
+          "회비관리 · 모임원관리 · 모임게시판 바로가기와 신규 기능 안내 툴팁",
+          "총무는 채우기 / 꺼내기, 모임원은 회비 입금 하단 버튼",
+        ],
+      },
+      {
+        title: "거래내역 · 모임결산 리포트",
+        screens: [
+          { image: hanaHistoryListImg, caption: "거래내역 목록" },
+          { image: hanaHistoryCalendarImg, caption: "달력 보기" },
+          { image: hanaReportImg, caption: "모임결산 리포트" },
+        ],
+        description:
+          "월별 거래내역을 목록과 달력으로 바꿔 보고, 한 달 동안의 모임 자금 흐름을 리포트로 정리해 보여줍니다.",
+        points: [
+          "목록 / 달력 토글, 월 이동, 입금 · 출금 합계 요약",
+          "달력 날짜별 입출금 금액 표시와 오늘 · 선택일 강조",
+          "회비 납부율 게이지, 월별 자산 흐름 막대 차트, 지출 Top3",
+        ],
+      },
+      {
+        title: "잔액 나누기",
+        screens: [
+          { image: hanaSplitMembersImg, caption: "1. 인원 선택" },
+          { image: hanaSplitAmountImg, caption: "2. 금액 입력" },
+          { image: hanaSplitConfirmImg, caption: "3. 이체 내용 확인" },
+          { image: hanaSplitCompleteImg, caption: "완료" },
+        ],
+        description:
+          "모임통장에 남은 돈을 모임원에게 나눠 보내는 3단계 흐름입니다. 단계마다 한 가지 질문만 하도록 구성했습니다.",
+        points: [
+          "모임원 검색 · 선택 칩 · 최대 15명 제한",
+          "금액 단위 버튼(1만 · 5만 · 10만 · 100만 · 전액)과 숫자 키패드",
+          "참여자별 금액 수정 · 초기화, 이체 완료 결과 요약",
+        ],
+      },
+      {
+        title: "모임 게시판",
+        screens: [
+          { image: hanaBoardListImg, caption: "게시판 목록" },
+          { image: hanaBoardDetailImg, caption: "게시글 상세" },
+        ],
+        description:
+          "모임원끼리 공지를 올리고 댓글을 남기는 게시판입니다. 작성자와 권한에 따라 보이는 메뉴가 달라지는 케이스를 나눠 구성했습니다.",
+        points: [
+          "공지 뱃지, 긴 닉네임 · 제목 말줄임, 댓글 수 표시",
+          "본인 / 타인 / 총무 권한에 따라 다른 게시글 · 댓글 관리 메뉴",
+          "글쓰기 · 공지 등록 / 해제 · 삭제 확인 알럿",
+        ],
+      },
+      {
+        title: "댓글 입력 컴포넌트 · 직접 제작",
+        screens: [
+          { image: hanaCommentExpandImg, caption: "최대 5줄까지 확장" },
+          { image: hanaCommentScrollImg, caption: "5줄 초과 시 스크롤" },
+          { image: hanaCommentInputImg, caption: "입력 상태 정리" },
+        ],
+        description:
+          "게시글 상세 하단의 댓글 입력창을 새 컴포넌트로 직접 만들었습니다. 입력한 줄 수에 맞춰 높이가 늘어나다가, 5줄을 넘으면 높이를 고정하고 입력창 안에서 스크롤됩니다.",
+        points: [
+          "입력 대기 → 입력 중(줄 수만큼 높이 확장) → 최대 5줄 → 초과 시 내부 스크롤",
+          "입력창이 커져도 등록 버튼은 하단에 고정",
+          "입력 후 포커스가 빠지면 한 줄로 줄이고 말줄임 처리",
+        ],
+      },
     ],
   },
   {
